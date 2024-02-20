@@ -1,0 +1,38 @@
+body {
+background: #696969;
+margin: 50px;
+font-family: Arial;
+color: #FFFFFF;
+}
+p{
+text-align: justify;
+text-indent: 10%;
+}
+span{
+color: #00FFFF;
+font-size: 20px;
+font-weight: bold;
+}
+img{
+width:300px;
+float:right;
+margin:10px;
+}
+#wazne
+{
+color:green;
+}
+h1{
+color:white;
+}
+p.normalny
+{
+font-family: Helvetica; font-size: 10pt
+}
+p.przypisy
+{
+font-family: Times New Roman; font-size: 8pt
+}
+p.uwagi
+{
+font-family: verdana; font-size: 10pt; font-weight: bold
