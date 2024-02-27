@@ -1,11 +1,12 @@
 body
 { 
-background-color:#006633
+background-color:#006633:
 text-align:center;margin:0px;
 padding:0px;
 }
 div
 {
+background-color:#33FF00;
 margin-left:auto;
 margin-right:auto;
 width:1000px;
