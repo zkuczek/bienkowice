@@ -12,23 +12,22 @@ border:1px solid black;
 }
 #header
 {
-background-color: #357;
 margin-top: 10px;
 height: 150px;
-background:#ED11F5;
+background:#207501;
 }
 #left
 {
 width:170px;
 float:left;
-background:#7011F5;
+background:#CBF9BA;
 height: 500px;
 }
 #main
 {
 width:580px;
 float:left;
-background:#2326D1;
+background:#44FF00;
 height: 500px;
 color: black;
 }
@@ -36,7 +35,7 @@ color: black;
 {
 width:170px;
 float:left;
-background:#0CE6DF;
+background:#9FFF7C;
 height: 500px;
 }
 #footer
