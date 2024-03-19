@@ -1,0 +1,63 @@
+body
+{
+margin:0;
+padding:0;
+}
+#container
+{
+width:920px;
+margin-left:auto;
+margin-right:auto;
+border:1px solid black;
+}
+#header
+{
+background-color: #357;
+margin-top: 10px;
+height: 150px;
+background:#ED11F5;
+}
+#left
+{
+width:170px;
+float:left;
+background:#7011F5;
+}
+#main
+{
+width:580px;
+float:left;
+background:#2326D1;
+}
+#right
+{
+width:170px;
+float:left;
+background:#0CE6DF;
+}
+#footer
+{
+clear:both;
+background:#E60C87;
+}
+#logo
+{
+float: left;
+padding: 10px;
+width: 150px;
+text-align: center;
+
+}
+
+#tytul
+{
+float: left;
+padding: 10px;
+width: 560px;
+font-size: 40px;
+color: white;
+text-align: center;
+line-height: 3;
+}
+
+
