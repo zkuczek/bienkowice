@@ -47,12 +47,11 @@ height: 500px;
 }
 #main
 {
-
-width:50%;
-padding:2%
+font-size:70%;
+width:540px;
 float:left;
 backgroun:#44FF00;
-height: 500px;
+height: 800px;
 color: black;
 }
 #right
