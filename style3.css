@@ -40,10 +40,10 @@ unicode-bidi: isolate;
 }
 #left
 {
-width:170px;
+width:200px;
 float:left;
 background:#CBF9BA;
-height: 500px;
+height: 800px;
 }
 #main
 {
@@ -56,10 +56,10 @@ color: black;
 }
 #right
 {
-width:170px;
+width:200px;
 float:left;
 background:#9FFF7C;
-height: 500px;
+height: 800px;
 }
 #footer
 {
