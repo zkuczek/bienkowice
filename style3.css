@@ -9,6 +9,7 @@ width:100%;
 margin-left:auto;
 margin-right:auto;
 border:1px solid black;
+hight:1000px
 }
 #header
 {
@@ -46,9 +47,11 @@ height: 500px;
 }
 #main
 {
-width:580px;
+
+width:50%;
+padding:2%
 float:left;
-background:#44FF00;
+backgroun:#44FF00;
 height: 500px;
 color: black;
 }
