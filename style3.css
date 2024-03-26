@@ -16,6 +16,22 @@ margin-top: 10px;
 height: 150px;
 background:#207501;
 }
+#nav
+{
+font-size: 30px;
+width: auto;
+height: 85px;
+clear: both;  
+}
+.block
+{
+background-color: #209400;
+float: left;
+margin: 1%;
+padding: 1%;
+width: 21%;
+text-align: center;
+}
 #left
 {
 width:170px;
