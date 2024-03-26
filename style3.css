@@ -41,7 +41,7 @@ unicode-bidi: isolate;
 }
 #left
 {
-width:200px;
+width:250px;
 float:left;
 background:#CBF9BA;
 height: 800px;
@@ -57,7 +57,7 @@ color: black;
 }
 #right
 {
-width:200px;
+width:250px;
 float:left;
 background:#9FFF7C;
 height: 800px;
