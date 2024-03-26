@@ -32,6 +32,11 @@ padding: 1%;
 width: 21%;
 text-align: center;
 }
+div 
+{
+display: block;
+unicode-bidi: isolate;
+}
 #left
 {
 width:170px;
