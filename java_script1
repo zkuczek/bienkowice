@@ -1,0 +1,33 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-2">
+<SCRIPT LANGUAGE= "JavaScript" type= "text/javascript">
+<!-- Ukrycie przed przeglądarkami nie obsługującymi JavaScriptów
+var currentBanner = 0;
+var timeout = 20;
+var bannerArray = new Array(
+    "banner1.gif", "banner5.gif", "banner8.gif",
+    "reklama1.gif", "adv18.jpg", "adv22.jpg"
+    );
+function printBanner()
+{
+  tekst = "<IMG SRC='" + bannerArray[currentBanner] + "'>";
+  document.getElementById("bannerLayer").innerHTML=tekst;
+  if((++currentBanner) >= bannerArray.length) currentBanner = 0;
+  timerID = setTimeout("printBanner()", timeout * 1000);
+}
+// Koniec kodu JavaScript -->
+</SCRIPT>
+</HEAD>
+<BODY onLoad="printBanner()">
+<DIV
+  ID="bannerLayer"
+  STYLE="
+    visibility: visible;
+    position: absolute;
+    top: 20;
+    left: 20;"
+>
+</DIV>
+</BODY>
+</HTML>
