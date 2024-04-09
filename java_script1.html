@@ -3,51 +3,62 @@
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-2">
 <SCRIPT LANGUAGE= "JavaScript" type= "text/javascript">
 <!-- Ukrycie przed przeglądarkami nie obsługującymi JavaScriptów
-var speedTableY = new Array();
-var posX = new Array();
-var smooth = new Array();
-var amplitude = new Array();
-var tabB = new Array();
-var speed = 50;
-var speedLevelsY = 5;
-var layersCount = 10;
+var speed = 20;
+var speedStep = 1;
+var ltop;
+var bottom;
+var direction = 'down';
+var id;
+var iter = 4;
 function ustaw()
 {
-  clWidth = document.body.clientWidth - 50;
-  for (i = 0; i < layersCount; i++){
-    posX[i] = Math.ceil(Math.random() * clWidth);
-    speedTableY[i] = Math.ceil(Math.random() * speedLevelsY);
-    amplitude[i] = Math.ceil(Math.random() * 40 + 20);
-    smooth[i] = Math.ceil(Math.random() * 48) + 10;
-    tabB[i] = Math.random() * 4;
-  }
+  document.getElementById('ball').style.left = 0;
+  ltop = 0;
+  bottom = document.body.clientHeight - 50;
 }
-var b = 0;
+y = 0;
+x = 0;
 function start()
 {
-  clWidth = document.body.clientWidth - 50;
-  clHeight = document.body.clientHeight;
-  for (i = 0; i < layersCount; i++){
-    y = parseInt(document.getElementById('el' + i).style.top);
-    y += speedTableY[i];
-
-    tabB[i] += Math.PI / smooth[i];
-    x = parseInt(Math.sin(tabB[i]) * amplitude[i]) + posX[i];
-    if (x >= clWidth){
-      x = clWidth;
+  layer = document.getElementById('ball');
+  y = parseInt(layer.style.top);
+  if (y < bottom && direction == 'down'){
+    y += speedStep++;
+    if (y > bottom){
+      layer.style.top = bottom;
     }
-    document.getElementById('el' + i).style.left = x;
-   
-    if (y >= clHeight - 45){
-      y = -50;
-      posX[i] = Math.ceil(Math.random() * clWidth);
-      speedTableY[i] = Math.ceil(Math.random() * speedLevelsY);
-      amplitude[i] = Math.ceil(Math.random() * 100 + 20);
-      smooth[i] = Math.ceil(Math.random() * 48) + 48;
+    else{
+      layer.style.top = y;
     }
-    document.getElementById('el' + i).style.top = y;
+    id = setTimeout('start()', speed);
+    return;
   }
-  setTimeout('start()', speed);
+  else if (y >= bottom && direction == 'down'){
+    direction = 'up';
+    ltop = ltop + Math.ceil((bottom - ltop) / iter);
+    if (ltop >= bottom){
+      clearTimeout(id);
+      return;
+    }
+    id = setTimeout('start()', speed);
+    return;
+  }
+  else if (y > ltop && direction == 'up'){
+    y -= speedStep--;
+    if (y < ltop){
+      layer.style.top = ltop;
+    }
+    else{
+      layer.style.top = y;
+    }
+    id = setTimeout('start()', speed);
+    return;
+  }
+  else if (y <= ltop && direction == 'up'){
+    direction = 'down';
+    if (speedStep%3 == 0) speedStep--;
+    id = setTimeout('start()', speed);
+  }
 }
 
 </SCRIPT>
@@ -55,15 +66,15 @@ function start()
 <BODY onLoad='ustaw();start();'>
 <SCRIPT LANGUAGE= "JavaScript" type= "text/javascript">
 <!-- Ukrycie przed przeglądarkami nie obsługującymi JavaScriptów
-for (i = 0; i < layersCount; i++){
-  str = '<DIV ID="el' + i + '" ';
+for (i = 0; i < 1;i++){
+  str = '<DIV ID="ball" ';
   str += 'style = "visibility: visible; ';
   str += 'width=50px; ';
   str += 'heigth=45px; ';
   str += 'position: absolute; ';
   str += 'top: 1; ';
   str += 'left: 1;">';
-  str += '<IMG SRC="sniezynka.gif">';
+  str += '<IMG SRC="pilka.gif">';
   str += '</DIV>';
   document.write(str);
 }
