@@ -1,38 +1,27 @@
-<head>
-$(document).ready( function()
-{
-   PEPS.rollover.init();
-});
-
-PEPS = {};
-
-PEPS.rollover =
-{
-   init: function()
-   {
-      this.preload();
-     
-      $(".ro").hover(
-         function () { $(this).attr( 'src', PEPS.rollover.newimage($(this).attr('src')) ); },
-         function () { $(this).attr( 'src', PEPS.rollover.oldimage($(this).attr('src')) ); }
-      );
-   },
-
-   preload: function()
-   {
-      $(window).bind('load', function() {
-         $('.ro').each( function( key, elm ) { $('<img>').attr( 'src', PEPS.rollover.newimage( $(this).attr('src') ) ); });
-      });
-   },
-   
-   newimage: function( src )
-   {
-      return src.substring( 0, src.search(/(\.[a-z]+)$/|>) ) + '_o' + src.match(/(\.[a-z]+)$/|>)[0];
-   },
-
-   oldimage: function( src )
-   {
-      return src.replace(/_o\./, '.');
-   }
-};
-</head>
+<html>
+    <head>
+        <title>Usuwanie nieprzyzwoitych wyrazów - przykład</title>
+        <script type="text/javascript">
+               
+                function filterText(sText) {
+                    var reBadWords = /przekleństwo1|przekleństwo2/gi;
+                    return sText.replace(reBadWords, "****");            
+                }
+               
+                function showText() {
+                    var oInput1 = document.getElementById("txt1");
+                    var oInput2 = document.getElementById("txt2");
+                    oInput2.value = filterText(oInput1.value);
+                }
+        </script>
+    </head>
+    <body>
+        <p>Wprowadź poniżej jakiś tekst zawierajšcy ciągi "przekleństwo1" i "przekleństwo2", po czym kliknij przycisk<br />
+Coś tam kurwa było dzisiaj. Japierdole
+        <textarea rows="10" cols="50" id="txt1"></textarea><br />
+        <input type="button" value="Filtruj przekleństwa" onclick="showText()" /></p>
+        <p>Filtered Text:<br />
+        <textarea rows="10" cols="50" id="txt2"></textarea></p>
+       
+    </body>
+</html>
