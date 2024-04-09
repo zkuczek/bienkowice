@@ -1,0 +1,54 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-2">
+<SCRIPT LANGUAGE= "JavaScript" type= "text/javascript">
+<!-- Ukrycie przed przeglądarkami nie obsługującymi JavaScriptów
+var speed = 200;
+var text = "";
+var padding = "";
+var count = 0;
+var tempText = "";
+function setupText()
+{
+  var paddingLength = 40;
+  padding = "";
+  text = "Godzina ";
+  for(i = 0; i < paddingLength; i++){
+    padding += " ";
+  }
+  text = padding + text;
+}
+function scroll()
+{
+  tempText = text + getTime();
+  tempText = tempText.substr(count, tempText.length - count);
+  count++;
+  if(tempText.length < 1) {count=0;setupText();};
+  document.getElementById("wyswietlacz").value = tempText;
+  setTimeout("scroll()", speed);
+}
+
+function getTime()
+{
+  var data = new Date();
+  var godziny = data.getHours();
+  var minuty = data.getMinutes();
+  var sekundy = data.getSeconds();
+  var czas = godziny;
+  czas += ((minuty < 10) ? ":0" : ":") + minuty;
+  czas += ((sekundy < 10) ? ":0" : ":") + sekundy;
+  return czas;
+}
+
+// Koniec kodu JavaScript -->
+</SCRIPT>
+</HEAD>
+<BODY onLoad="setupText();scroll();">
+<INPUT TYPE="text"
+       ID="wyswietlacz"
+       STYLE="font-family:courier"
+       SIZE="40"
+       VALUE =""
+>
+</BODY>
+</HTML>
