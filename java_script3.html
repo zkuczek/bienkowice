@@ -1,27 +1,123 @@
-<html>
-    <head>
-        <title>Usuwanie nieprzyzwoitych wyrazów - przykład</title>
-        <script type="text/javascript">
-               
-                function filterText(sText) {
-                    var reBadWords = /przekleństwo1|przekleństwo2/gi;
-                    return sText.replace(reBadWords, "****");            
-                }
-               
-                function showText() {
-                    var oInput1 = document.getElementById("txt1");
-                    var oInput2 = document.getElementById("txt2");
-                    oInput2.value = filterText(oInput1.value);
-                }
-        </script>
-    </head>
-    <body>
-        <p>Wprowadź poniżej jakiś tekst zawierający ciągi "przekleństwo1" i "przekleństwo2", po czym kliknij przycisk
+<head>
+<style>
 
-        <textarea rows="10" cols="50" id="txt1"></textarea></br><br />
-        <input type="button" value="Filtruj przekleństwa" onclick="showText()" /></p>
-        <p>Filtered Text:<br />
-        <textarea rows="10" cols="50" id="txt2"></textarea></p>
-       
-    </body>
-</html>
+#divMenu {font-family:arial,helvetica; font-size:12pt; font-weight:bold}
+#divMenu a{text-decoration:none;}
+#divMenu a:hover{color:red;}
+</style>
+<script language="JavaScript1.2">
+
+ie=document.all?1:0
+n=document.layers?1:0
+ns6=document.getElementById&&!document.all?1:0
+
+
+lshow=60
+
+var move=10;
+
+
+menuSpeed=40
+
+
+var moveOnScroll=true
+
+
+
+
+var ltop;
+var tim=0;
+
+//Object constructor
+function makeMenu(obj,nest){
+    nest=(!nest) ? '':'document.'+nest+'.'
+    if (n) this.css=eval(nest+'document.'+obj)
+    else if (ns6) this.css=document.getElementById(obj).style
+    else if (ie) this.css=eval(obj+'.style')                                           
+        this.state=1
+        this.go=0
+        if (n) this.width=this.css.document.width
+        else if (ns6) this.width=document.getElementById(obj).offsetWidth
+        else if (ie) this.width=eval(obj+'.offsetWidth')
+        this.left=b_getleft
+    this.obj = obj + "Object";  eval(this.obj + "=this")       
+}
+
+function b_getleft(){
+        if (n||ns6){ gleft=parseInt(this.css.left)}
+        else if (ie){ gleft=eval(this.css.pixelLeft)}
+        return gleft;
+}
+
+
+
+function moveMenu(){
+        if(!oMenu.state){
+                clearTimeout(tim)
+                mIn()   
+        }else{
+                clearTimeout(tim)
+                mOut()
+        }
+}
+
+function mIn(){
+        if(oMenu.left()>-oMenu.width+lshow){
+                oMenu.go=1
+                oMenu.css.left=oMenu.left()-move
+                tim=setTimeout("mIn()",menuSpeed)
+        }else{
+                oMenu.go=0
+                oMenu.state=1
+        }       
+}
+
+function mOut(){
+        if(oMenu.left()<0){
+                oMenu.go=1
+                oMenu.css.left=oMenu.left()+move
+                tim=setTimeout("mOut()",menuSpeed)
+        }else{
+                oMenu.go=0
+                oMenu.state=0
+        }       
+}
+
+
+
+function checkScrolled(){
+        if(!oMenu.go) oMenu.css.top=eval(scrolled)+parseInt(ltop)
+        if(n||ns6) setTimeout('checkScrolled()',30)
+}
+
+
+
+function menuInit(){
+        oMenu=new makeMenu('divMenu')
+        if (n||ns6) scrolled="window.pageYOffset"
+        else if (ie) scrolled="document.body.scrollTop"
+        oMenu.css.left=-oMenu.width+lshow
+        if (n||ns6) ltop=oMenu.css.top
+        else if (ie) ltop=oMenu.css.pixelTop
+        oMenu.css.visibility='visible'
+        if(moveOnScroll) ie?window.onscroll=checkScrolled:checkScrolled();
+}
+
+
+
+window.onload=menuInit;
+</script>
+</head>
+
+
+
+<body>
+<div id="divMenu" style="position:absolute; top:250; left:30; visibility:hidden; background-color:F0F0F0">
+<nobr>
+        <a href="http://www.dynamicdrive.com">Dynamic Drive</a> -
+        <a href="http://www.codingforums.com">Coding Forums</a> -
+        <a href="http://active-x.com/">Active-X.com</a> -
+        <a href="javascript://" onclick="moveMenu()" style="background-color:yellow;text-decoration:none">MENU</a>
+</nobr>
+</div>
+</body>
