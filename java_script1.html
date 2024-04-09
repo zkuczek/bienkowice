@@ -3,26 +3,72 @@
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-2">
 <SCRIPT LANGUAGE= "JavaScript" type= "text/javascript">
 <!-- Ukrycie przed przeglądarkami nie obsługującymi JavaScriptów
-var length = 400;
-var amplitude = 2;
-function shake()
+var speedTableY = new Array();
+var posX = new Array();
+var smooth = new Array();
+var amplitude = new Array();
+var tabB = new Array();
+var speed = 50;
+var speedLevelsY = 5;
+var layersCount = 10;
+function ustaw()
 {
-  for(i = 0; i < length; i++){
-    window.moveBy(amplitude,0);
-    window.moveBy(0,amplitude);
-    window.moveBy(-amplitude,0);
-    window.moveBy(0,-amplitude);
+  clWidth = document.body.clientWidth - 50;
+  for (i = 0; i < layersCount; i++){
+    posX[i] = Math.ceil(Math.random() * clWidth);
+    speedTableY[i] = Math.ceil(Math.random() * speedLevelsY);
+    amplitude[i] = Math.ceil(Math.random() * 40 + 20);
+    smooth[i] = Math.ceil(Math.random() * 48) + 10;
+    tabB[i] = Math.random() * 4;
   }
 }
-// Koniec kodu JavaScript -->
+var b = 0;
+function start()
+{
+  clWidth = document.body.clientWidth - 50;
+  clHeight = document.body.clientHeight;
+  for (i = 0; i < layersCount; i++){
+    y = parseInt(document.getElementById('el' + i).style.top);
+    y += speedTableY[i];
+
+    tabB[i] += Math.PI / smooth[i];
+    x = parseInt(Math.sin(tabB[i]) * amplitude[i]) + posX[i];
+    if (x >= clWidth){
+      x = clWidth;
+    }
+    document.getElementById('el' + i).style.left = x;
+   
+    if (y >= clHeight - 45){
+      y = -50;
+      posX[i] = Math.ceil(Math.random() * clWidth);
+      speedTableY[i] = Math.ceil(Math.random() * speedLevelsY);
+      amplitude[i] = Math.ceil(Math.random() * 100 + 20);
+      smooth[i] = Math.ceil(Math.random() * 48) + 48;
+    }
+    document.getElementById('el' + i).style.top = y;
+  }
+  setTimeout('start()', speed);
+}
+
 </SCRIPT>
 </HEAD>
-<BODY>
-<img src="logo.jpg">
-<INPUT
-  TYPE="button"
-  VALUE="Kliknij tu"
-  onClick="shake();"
->
+<BODY onLoad='ustaw();start();'>
+<SCRIPT LANGUAGE= "JavaScript" type= "text/javascript">
+<!-- Ukrycie przed przeglądarkami nie obsługującymi JavaScriptów
+for (i = 0; i < layersCount; i++){
+  str = '<DIV ID="el' + i + '" ';
+  str += 'style = "visibility: visible; ';
+  str += 'width=50px; ';
+  str += 'heigth=45px; ';
+  str += 'position: absolute; ';
+  str += 'top: 1; ';
+  str += 'left: 1;">';
+  str += '<IMG SRC="sniezynka.gif">';
+  str += '</DIV>';
+  document.write(str);
+}
+
+</SCRIPT>
+<H1 align="center">Treść strony<H1>
 </BODY>
 </HTML>
