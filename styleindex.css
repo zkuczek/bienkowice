@@ -1,6 +1,15 @@
 body
 {
-text-align:left
-margin:0px
-padding:0px
-background-image: url(
+  text-align:left
+  margin:0px
+  padding:0px
+  background-image: url(bink.jpg)
+}
+div
+{
+  opacity:0.7
+  width:1000px
+  height:80%
+  margin-right:auto
+}
+
