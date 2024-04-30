@@ -1,2 +1,44 @@
-<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
-</canvas>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas zadanie</title>
+  <style>
+    /* Add some basic styling to our page */
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <h1>Canvas zadanie</h1>
+  <canvas id="myCanvas" width="400" height="200"></canvas>
+  <script>
+    // Get the canvas element
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    // Draw a rectangle
+    ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
+    ctx.fillRect(50, 50, 100, 100);
+
+    // Draw a circle
+    ctx.beginPath();
+    ctx.arc(200, 100, 50, 0, 2 * Math.PI);
+    ctx.fillStyle = "rgba(0, 0, 255, 0.5)";
+    ctx.fill();
+
+    // Draw some text
+    ctx.font = "24px Arial";
+    ctx.fillStyle = "black";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("Koło i kwadrat", 200, 150);
+  </script>
+</body>
+</html>
