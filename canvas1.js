@@ -2,9 +2,9 @@ const sun = new Image();
 const moon = new Image();
 const earth = new Image();
 function init() {
-  sun.src = "canvas_sun.png";
-  moon.src = "canvas_moon.png";
-  earth.src = "canvas_earth.png";
+  sun.src = "slonce.png";
+  moon.src = "moon.png";
+  earth.src = "ziemia.png";
   window.requestAnimationFrame(draw);
 }
 
