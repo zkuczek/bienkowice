@@ -15,7 +15,7 @@ hight:1000px
 {
 text-align:center;
 margin-top: 10px;
-height: 25%;
+height: 150px;
 background:#207501;
 }
 #nav
@@ -23,7 +23,7 @@ background:#207501;
 background-color:#0D3D00;
 font-size: 30px;
 width: auto;
-height: 15%;
+height: 85px;
 clear: both;  
 }
 .block
@@ -45,7 +45,7 @@ unicode-bidi: isolate;
 width:25%;
 float:left;
 background:#30D603;
-height:50%;
+height: 800px;
 }
 #main
 {
@@ -53,7 +53,7 @@ font-size:20px;
 width:50%;
 float:left;
 background-color:#2AC200;
-height:50%;
+height: 800px;
 color: black;
 }
 #right
@@ -61,14 +61,13 @@ color: black;
 width:25%;
 float:left;
 background:#30D603;
-height:50%;
+height: 800px;
 }
 #footer
 {
 clear:both;
 background:#103C00;
 color: white;
-height:10px;
 }
 #logo
 {
