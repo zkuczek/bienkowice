@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centrum Bieńkowic</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="gallery">
+        <div class="thumbnails">
+            <img src="psina1.jpg" alt="Zdjęcie 1" onclick="openModal('psina1.jpg')">
+            <img src="psina2.jpg" alt="Zdjęcie 2" onclick="openModal('psina2.jpg')">
+            <img src="psina3.jpg" alt="Zdjęcie 3" onclick="openModal('psina3.jpg')">
+            <img src="psina4.jpg" alt="Zdjęcie 4" onclick="openModal('psina4.jpg')">
+            
+        </div>
+        <div id="modal" class="modal">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-img" class="modal-content" src="">
+        </div>
+    </div>
+
+    <script>
+        function openModal(imageSrc) {
+            document.getElementById("modal-img").src = imageSrc;
+            document.getElementById("modal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
+</body>
+</html>
