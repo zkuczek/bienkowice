@@ -12,5 +12,14 @@
 // Skrypt ten wypisze tekst, uŻywając funkcji "print"
 print("PHP");
 ?>
+
+echo ('Zaczynam poznawać PHP');
+print ("<br>");
+echo ("Zaczynam poznawać PHP");
+print ("<br>");
+print ('Zaczynam poznawać PHP');
+print ("<br>");
+print ("Zaczynam poznawać PHP");
+
 </body>
 </html>
